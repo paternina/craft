@@ -1,0 +1,23 @@
+<article class="media">
+  <figure class="media-left">
+    <p class="image is-48x48 user-thumb">
+      <%= gravatar_image_tag(current_user.email.gsub('spam', 'mdeering'), alt: current_user.name, gravatar: { size: 48, secure: true }) %>
+    </p>
+  </figure>
+  <div class="media-content">
+    <%= simple_form_for([@craft, @craft.comments.build]) do |f| %>
+    <div class="field">
+      <p class="control">
+        <%= f.input :response, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: 'label' } %>
+      </p>
+    </div>
+    <nav class="level">
+      <div class="level-left">
+        <div class="level-item">
+          <%= f.button :submit, 'Leave a reply', class: 'button is-primary' %>
+        </div>
+      </div>
+    </nav>
+    <% end %>
+  </div>
+</article>

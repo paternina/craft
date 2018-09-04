@@ -1,0 +1,55 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5">
+				<div class="box has-text-centered">
+					
+					<h2 class="title is-2">Sign up</h2>
+					<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), defaults: {label: false}) do |f| %>
+					  <%= f.error_notification %>
+						<div class="field">
+					  	<div class="control has-icons-left">
+					  		<%= f.input :name, required: true, autofocus: true, input_html: { class: "input", placeholder: "Name" }, wrapper: false %>
+					    	<%#= f.input :name, required: true, autofocus: true, input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+					    	<span class="icon is-small is-left">
+						      <i class="fas fa-user"></i>
+						    </span>
+					    </div>
+					  </div>
+	          <div class="field">
+	            <div class="control has-icons-left">
+		            <%= f.input :email, required: true, input_html: { class: "input", placeholder: "Email" }, wrapper: false %>
+						    <%#= f.input :email, required: true, input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+						    <span class="icon is-small is-left">
+						      <i class="fas fa-envelope"></i>
+						    </span>
+					  	</div>
+						</div>
+	          <div class="field">
+	            <div class="control has-icons-left">
+	            	<%= f.input :password, required: true, input_html: { class: "input", placeholder: "Password" }, wrapper: false %>
+					    	<%#= f.input :password, required: true, input_html: { class: "input"}, wrapper: false, label_html: { class: "label" }, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+					    	<span class="icon is-small is-left">
+						      <i class="fas fa-lock"></i>
+						    </span>
+					  	</div>
+						</div>
+	          <div class="field">
+	            <div class="control has-icons-left">
+	            	<%= f.input :password_confirmation, required: true, input_html: { class: "input", placeholder: "Confirm password" }, wrapper: false %>
+					    	<%#= f.input :password_confirmation, required: true, input_html: { class: "input"}, wrapper: false, label_html: { class: "label" } %>
+					    	<span class="icon is-small is-left">
+						      <i class="fas fa-lock"></i>
+						    </span>
+					  	</div>
+						</div>	
+						<%= f.button :submit, "Sign up", class:"button is-primary is-medium" %>
+					<% end %>
+						<br />
+					<%= render "devise/shared/links" %>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
